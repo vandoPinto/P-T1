@@ -1,0 +1,117 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px; width: 100%; background-color: #a9e5ea;">
+    <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p
+        style="position: absolute;font: normal normal normal 11px/15px Poppins;letter-spacing: 0px;color: #294666;margin-left: 112px;margin-top: 25px;width: 400px;">
+        PRÁTICAS INTEGRATIVAS EM SAÚDE: CONCEITOS, CUIDADO E RESULTADOS</p>
+</div>
+<div style="margin-top: 66px;margin-left: 63px;width: 785px;">
+    <p>Uma diferenciação importante no contexto das práticas integrativas em saúde é entre recursos terapêuticos e
+        sistemas
+        médicos complexos (SOUSA; GUIMARÃES; GALLEGO-PERREZ, 2021). </p>
+    <p>Clique em cada uma das imagens para conhecer essa diferença.</p>
+    <img id="botao_1" src="recursos/imgs/img.1-slide-5.svg"
+        style="width: 96px; margin-top: 58px; margin-left: 190px; cursor: pointer;">
+    <img id="botao_2" src="recursos/imgs/img.2-slide-5.svg"
+        style="width: 96px; margin-top: 58px; margin-left: 166px; cursor: pointer;">
+    <div style="display: flex;margin-top: 30px;margin-left: 150px;width: 445px;justify-content: space-between;">
+        <div
+            style="width: 174px;height: 24px;background: #455A64 0% 0% no-repeat padding-box;border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <p style="font: normal normal normal 12px/16px Poppins;color: #FFFFFF; text-align: center;">Recursos
+                Terapêuticos</p>
+        </div>
+        <div
+            style="width: 174px;height: 41px;background: #455A64 0% 0% no-repeat padding-box;border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <p style="font: normal normal normal 12px/16px Poppins;color: #FFFFFF; text-align: center;">Sistemas
+                Médicos
+                Complexos</p>
+        </div>
+        <div>
+            <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+                <div
+                    style="width: 743px;height: 173px;background: #1B8992 0% 0% no-repeat padding-box;display: flex;position: absolute;top: 190px;left: 80px;align-items: center;border-radius: 12px;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <p style="font: normal normal bold 14px/14px Poppins;color: #FFFFFF;">RECURSOS TERAPÊUTICOS
+                        </p>
+                        <p style="width: 689px;font: normal normal normal 14px/18px Poppins;color: #FFFFFF;">A
+                            medicina
+                            convencional conta com os medicamentos (quimicamente definidos) e as intervenções
+                            cirúrgicas
+                            como seus
+                            principais recursos terapêuticos. A caracterização “quimicamente definidos” para os
+                            medicamentos convencionais tem como
+                            objetivo distingui-los de outros medicamentos, especialmente os fitoterápicos,
+                            homeopáticos
+                            e antroposóficos, os quais
+                            são recursos terapêuticos no contexto das PIS.</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+            <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+                <div
+                    style="width: 743px;height: 173px;background: #1B8992 0% 0% no-repeat padding-box;display: flex;position: absolute;top: 190px;left: 80px;align-items: center;border-radius: 12px;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <p style="font: normal normal bold 14px/14px Poppins;color: #FFFFFF;">SISTEMAS MÉDICOS COMPLEXOS
+                        </p>
+                        <p style="width: 689px;font: normal normal normal 14px/18px Poppins;color: #FFFFFF;">Homeopatia,
+                            medicina antroposófica, medicina tradicional chinesa (MTC) e medicina ayurvédica são
+                            exemplos de sistemas
+                            médicos complexos, ou seja, abrangem não apenas recursos terapêuticos, mas também formas
+                            próprias de explicar o processo
+                            saúde e doença, diagnosticar e prescrever.</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #CEE4F1;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: #294666;font-size: 11px;">GESTÃO DA APS E PRÁTICAS INTEGRATIVAS EM SAÚDE</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

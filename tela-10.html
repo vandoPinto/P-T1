@@ -1,0 +1,109 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px; width: 100%; background-color: #a9e5ea;">
+    <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p
+        style="position: absolute;font: normal normal normal 11px/15px Poppins;letter-spacing: 0px;color: #294666;margin-left: 112px;margin-top: 25px;width: 400px;">
+        PRÁTICAS INTEGRATIVAS EM SAÚDE: CONCEITOS, CUIDADO E RESULTADOS</p>
+</div>
+<div>
+    <div style="display: flex;">
+        <div style="margin-top: 41px;margin-left: 78px;width: 453px;">
+            <p style="font: normal normal bold 20px/30px Poppins;color: #FFA800;">Perspectiva histórica e
+                abrangência das
+                PIS</p>
+            <div style="width: 408px;">
+                <p>Em termos institucionais, na saúde pública brasileira, o desejo de incluir PIS entre os
+                    tratamentos
+                    em saúde
+                    nasce junto
+                    aos movimentos que, posteriormente, resultaram na formação do nosso Sistema Único de Saúde
+                    (SUS).
+                </p>
+                <p>No panorama mundial,
+                    esse não era um assunto novo, já que, em 1978, na Conferência de Alma-Ata, a OMS recomendava o
+                    uso
+                    de
+                    medicinas
+                    tradicionais, complementares e integrativas (MTCI) (WORLD HEALTH ORGANIZATION, 1978). </p>
+                <p>Clique no mapa para entender como
+                    a PIS foi implantada no Brasil e, em especial, no DF.</p>
+            </div>
+        </div>
+        <div id="botao_1" class="animate__animated animate__backInRight">
+            <img src="recursos/imgs/img-slide-9.svg" style="width: 335px;/* margin-left: -10px; */margin-top: 88px;">
+        </div>
+        <div>
+            <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+                <div
+                    style="width: 743px;height: 262px;background: #1B8992 0% 0% no-repeat padding-box;display: flex;position: absolute;top: 130px;left: 80px;align-items: center;border-radius: 12px;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <p style="width: 689px;font: normal normal normal 14px/18px Poppins;color: #FFFFFF;">No Brasil,
+                            oficialmente, apenas em 1986 tivemos o primeiro ato nacional sobre PIS: na 8ª Conferência
+                            Nacional de Saúde
+                            (CNS), deliberou-se pela inserção de práticas alternativas nos serviços de saúde, visando à
+                            ampliação das possibilidades
+                            de escolha dos tratamentos por parte dos usuários. Observe que, na época, era empregado o
+                            termo práticas alternativas,
+                            outro modo de se referir às práticas integrativas. </p>
+                        <p style="width: 689px;font: normal normal normal 14px/18px Poppins;color: #FFFFFF;">No Distrito
+                            Federal, a inserção de PIS foi anterior à referida
+                            conferência. Em 1983, foi implantado o primeiro horto de plantas medicinais, na Unidade de
+                            Saúde Integral de Planaltina,
+                            vinculada ao hospital. Em 1986, foi criado o Instituto de Tecnologia Alternativa do Distrito
+                            Federal (ITA/DF), e, em
+                            1987, o convênio entre esse instituto, a União e a Secretaria do Estado de Saúde (SES/DF)
+                            foi o marco para a implantação
+                            de acupuntura, alimentação natural, fitoterapia e homeopatia no SUS do DF (DISTRITO FEDERAL,
+                            2014).</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #CEE4F1;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: #294666;font-size: 11px;">GESTÃO DA APS E PRÁTICAS INTEGRATIVAS EM SAÚDE</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
